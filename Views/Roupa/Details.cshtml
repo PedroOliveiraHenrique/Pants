@@ -1,0 +1,30 @@
+﻿@model Roupa
+
+<div class="container">
+    <div style="align-items: center; display: flex; justify-content: space-around; margin: 50px 0; padding: 15px 0">
+        
+        <div style="">
+            <div class="text-center">
+                <img src="@Model.ImagemUrl" class="img-fluid" alt="" style="width: 450px; margin-left: 100px"  />
+            </div>
+        </div>
+
+        <div style=" margin-right: 100px">
+            <div>
+                <h4 class="card-title">@Model.DescricaoCurta</h4>
+                <h4 class="card-text">@Model.Marca</h4>
+                <hr />
+                <h4 class="card-text">R$ @Model.Preco</h4>
+                <div>
+                    <h6>*Frete grátis para todo o Brasil</h6>
+                </div>
+                <p class="btn btn-group align-content-lg-end" style="margin-top: 20px">
+                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra"
+                       asp-action="AdicionarItemNoCarrinhoCompra" asp-route-roupaId="@Model.RoupaId">
+                        Adicionar Produto a Sacola
+                    </a>
+                </p>
+            </div>
+        </div>  
+    </div>
+</div>

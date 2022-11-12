@@ -1,0 +1,49 @@
+﻿@model LoginViewModel
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<section>
+    <div class="container">
+        <div class="" style="margin-top: 50px; justify-content: space-around; align-items: center;background-color: ; text-align: center">
+            <div style="background-color: ">
+                <h1>Login</h1>
+            </div>
+            <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
+                <hr />
+                <input type="hidden" asp-for="ReturnUrl" />
+
+                <div style="background-color: ; padding: 20px 500px">
+                    <div class="form-group" >
+                        <label asp-for="UserName" class="col-md-2 control-label"></label>
+                        <div class="col-md-20">
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <hr/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label asp-for="Password" class="col-md-2 control-label"></label>
+                        <div class="col-md-20">
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="justify-content: space-around; align-items: center; margin-top: 10px">
+                    <div>  
+                        <input type="submit" class="btn btn-success" value="Logar" /> 
+                    </div>
+                        
+                    <div style="margin-top: 10px">
+                        <h5>Ou</h5>
+                        <input type="submit" class="btn btn-primary" asp-controller="Account" asp-action="Register" value="Registrar"/>
+                    </div>
+                </div>
+
+            </form>
+            
+
+        </div>
+    </div>
+</section>

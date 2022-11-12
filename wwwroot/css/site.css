@@ -1,0 +1,106 @@
+* {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+}
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+#logo {
+    /* NETPANTS */
+
+    position: absolute;
+    width: 175px;
+    height: 39px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 39px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+}
+
+
+
+
+
+.categoria {
+    color: #a0a0a0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+}
+
+.categoria:after {
+    content: "";
+    position: absolute;
+    background-color: #FFFFFF;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.7s;
+}
+
+.categoria:hover:after {
+    width: 100%;
+}
+
+.categoria:hover {
+    transform: scale(1.1);
+    color: #FFFFFF;
+}
+
+
+
+#login_hover {
+    transition: all 0.5s;
+}
+
+#login_hover:hover {
+    transform: scale(1.1);
+}
+
+
+
+#sacola_hover {
+    transition: all 0.5s;
+}
+
+#sacola_hover:hover {
+    transform: scale(1.1);
+}
+
+
+#carrosel {
+    background-color: red;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}

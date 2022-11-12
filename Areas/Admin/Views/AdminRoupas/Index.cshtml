@@ -1,0 +1,90 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<NetPants.Models.Roupa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="display: flex; align-items:center; justify-content: space-around; padding-top: 80px">Produtos</h1>
+
+<form method="get" class="form-inline">
+
+    <input name="filter" class="form-control" placeholder="filtro"
+            value="@Model.RouteValue["Filter"]"/>
+
+            <div style="padding: 20px 0">
+        <button type="submit" class="btn btn-outline-info" style="padding: 8px 25px">Buscar</button>
+            </div>
+</form>
+
+Total de Produtos : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+
+<p style="padding-top: 40px">
+    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Create">Adicionar novo Produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoCurta)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.IsRoupaPromocao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmEstoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoCurta)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRoupaPromocao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmEstoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+            </td>
+            <td>
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Edit" asp-route-id="@item.RoupaId">Editar</a> |
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Details" asp-route-id="@item.RoupaId">Detalhes</a> |
+                    <a class="text-decoration-none, btn btn-outline-danger" style="padding: 8px 25px" asp-action="Delete" asp-route-id="@item.RoupaId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

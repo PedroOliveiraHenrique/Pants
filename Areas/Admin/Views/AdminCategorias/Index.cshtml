@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NetPants.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="display: flex; align-items:center; justify-content: space-around; padding-top: 80px">Categorias</h1>
+
+<p style="display: flex; align-items:center; justify-content: space-around; padding-top: 50px; padding-bottom: 50px">
+    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 10px 50px; text-transform:uppercase" asp-action="Create">Criar nova Categoria</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Edit" asp-route-id="@item.CategoriaId">Editar</a> |
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Details" asp-route-id="@item.CategoriaId">Detalhes</a> |
+                    <a class="text-decoration-none, btn btn-outline-danger"  style="padding: 8px 25px" asp-action="Delete" asp-route-id="@item.CategoriaId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

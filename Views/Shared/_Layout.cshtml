@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NetPants</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NetPants.styles.css" asp-append-version="true" />
+    
+</head>
+<body>
+    <header>
+        <nav style="background-color: #101010; height: 120px; align-items: center; display: flex; justify-content: space-around; color: white; border-bottom: 1px solid white">
+            <div class="container">
+                <div class="row">
+                    <!--Logo-->
+                    <div class="col-1" style="align-items: center; display: flex; justify-content: space-around; letter-spacing: 1px;">
+                        <a class="" style="text-decoration: none; font-family:'Copperplate Gothic'; color: white; font-size: 40px" asp-area="" asp-controller="Home" asp-action="Index">Pants</a>
+                    </div>
+
+                    <!--Categorias-->
+                    <div class="col-7" style="align-items: center; display: flex; justify-content: space-around">
+                        @await Component.InvokeAsync("CategoriaMenu")
+                    </div>
+
+                    <!--Pesquisa-->
+                    <div class="col-2" style="align-items: center; display: flex; justify-content: space-around">
+                        <form class="navbar-form" asp-controller="Roupa" asp-action="Search" method="get">
+                            <div class="" style="display: flex; justify-content: space-between; align-items: center">
+                                <input type="text" style="outline: 0; color: black" placeholder="Buscar" name="searchString" required  value="@ViewData["searchString"]" />
+                                
+                                <button value="@ViewData["searchString"]" style="background-color: white; padding: 2px">
+                                        <img src="~/images/pesquisa.png" alt="" style="width: 22px; height: 22px; margin-left: " />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--Login-->
+                    <div id="login_hover" class="col-1" style="align-items: center; display: flex; justify-content: space-around">
+                        @await Html.PartialAsync("_LoginPartial")
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                        }
+                    </div>
+
+                    <!--Sacola-->
+                    <div id="sacola_hover" class="col-1" style="align-items: center; display: flex; justify-content: space-around">
+                        <a class="nav-link text-light" asp-controller="CarrinhoCompra" asp-action="Index" asp-route-returnUrl="" style="color:white"><img src="~/images/sacola.png" style="width: 25px" /></a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Pants - Desenvolvido por Pedro Henrique <a asp-area="" asp-controller="Home" asp-action="Index">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿@model HomeViewModel
+
+<partial name="_carousel" />
+
+<div style="background-color: #101010">
+    <div style="align-items: center; text-align: center; margin-top: 80px; padding: 40px 0; color: white;">
+        <h3><b>Ofertas da Semana</b></h3>
+    </div>
+
+
+    <div class="row" style="align-items: center; display: flex; text-align: center; margin-top: 80px; color: white">
+                    @foreach(var roupa in Model.RoupaPromocao)
+                {
+                    <partial name="_RoupasResumo" for="@roupa"/>
+                }
+    </div>
+</div>

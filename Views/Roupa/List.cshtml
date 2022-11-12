@@ -1,0 +1,19 @@
+﻿@model RoupaListViewModel
+
+<div style="align-items: center; display: flex; justify-content: space-around; margin: 80px 0; font-size: 35px;">
+    <p style="font-family:'Copperplate Gothic'"><b> Temos uma enorme varidade de produtos</b></p>
+    
+</div>
+
+<div style ="align-items: center; display: flex; justify-content: space-around; font-size: 35px; margin-top: -70px; margin-bottom: 80px">
+    <p><b>Corra e Aproveite</b></p>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach(var roupa in Model.Roupas)
+        {
+            <partial name="_RoupasResumo" for="@roupa"/>
+        }
+</div>
+</div>

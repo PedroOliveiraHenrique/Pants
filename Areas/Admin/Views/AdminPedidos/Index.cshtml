@@ -1,0 +1,114 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<NetPants.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="display: flex; align-items:center; justify-content: space-around; padding-top: 80px">Todos os Pedidos</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtrar"
+        value="@Model.RouteValue["Filter"]"/>
+
+    <div style="padding: 20px 0">
+        <button type="submit" class="btn btn-outline-info" style="padding: 8px 25px">
+            <span class="glyphicon glyphicon-search" aria-hidden="true" hi></span>
+            Procurar
+        </button>
+    </div>
+</form>
+
+Total de Pedidos : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+
+<p style="padding-top: 40px">
+    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Create">Criar novo Pedido</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidoEnviado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidoEntregueEm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobrenome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidoEnviado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidoEntregueEm)
+            </td>
+            <td>
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Edit" asp-route-id="@item.PedidoId">Editar</a>
+                    <a class="text-decoration-none, btn btn-outline-primary" style="padding: 8px 25px" asp-action="Details" asp-route-id="@item.PedidoId">Detalhes</a>
+                    <a class="text-decoration-none, btn btn-outline-danger" style="padding: 8px 25px" asp-action="Delete" asp-route-id="@item.PedidoId">Excluir</a>
+                    <a class="text-decoration-none, btn btn-outline-info" style="padding: 8px 25px" asp-action="PedidoRoupas" asp-route-id="@item.PedidoId">Ver Itens</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

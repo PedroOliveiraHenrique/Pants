@@ -1,0 +1,7 @@
+﻿<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+@foreach (var categoria in Model)
+{
+
+            <a class="categoria" asp-controller="Roupa" asp-action="List" style="color:white; text-decoration: none" asp-route-categoria="@categoria.CategoriaNome">@categoria.CategoriaNome</a>
+}

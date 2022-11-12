@@ -1,0 +1,31 @@
+﻿@model Roupa
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <div class="">
+    <a asp-controller="Roupa" asp-action="Details" asp-route-roupaId="@Model.RoupaId"><img id="icone" src="@Model.ImagemUrl" class="img-fluid" style="width: 280px" /></a>
+    </div>
+    
+
+
+    <h5 class="ofertas">
+        <a style="text-decoration: none; color: black" asp-controller="Roupa" asp-action="Details"
+    asp-route-roupaId="@Model.RoupaId">@Model.DescricaoCurta</a>
+    </h5>
+
+    <h6>@Model.DescricaoCurta</h6>
+
+    <h6>@Model.Marca</h6>
+
+    <h6>@Model.Preco.ToString("c")</h6>
+
+    <div style="padding-bottom: 50px; padding-top: 10px">
+        <p class="button">
+            <a class="btn btn-primary" id="cartButton" asp-controller="Roupa"
+            asp-action="details" asp-route-RoupaId="@Model.RoupaId">
+            Mais Detalhes
+            </a>
+        </p>
+    </div>
+
+</div>
